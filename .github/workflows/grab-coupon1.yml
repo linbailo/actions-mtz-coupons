@@ -1,33 +1,4 @@
-Skip to content
-Search
-Pulls
-Issues
-Marketplace
-Explore
- 
-@linbailo 
-linbailo
-/
-actions-mtz-coupons
-Public
-forked from vv314/actions-mtz-coupons
-Code
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-actions-mtz-coupons/.github/workflows/grab-coupon.yml
-@vv314
-vv314 feat: 支持 Qmsg 酱推送（QQ 通知）
-Latest commit 033ddcc on 25 Dec 2021
- History
- 1 contributor
-45 lines (42 sloc)  1.5 KB
-
-name: 领红包
+name: 领红包1
 
 # https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_dispatch
 on:
@@ -61,7 +32,7 @@ jobs:
       - name: Run app
         run: yarn start
         env:
-          TOKEN: ${{ secrets.TOKEN }}
+          TOKEN: "WSKuOSghNEAkIAxqe_kEyOnEhWcAAAAAgxMAAEXkzalgPpWabUPsCWoGbiZ5lj6cwWjpfkUeTs-VaW7rdP-8lJBqYi4UwiLLpXpCcg"
           BARK_KEY: ${{ secrets.BARK_KEY }}
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
@@ -72,4 +43,3 @@ jobs:
           LARK_WEBHOOK: ${{ secrets.LARK_WEBHOOK }}
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
           DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
-You have no unread notifications
