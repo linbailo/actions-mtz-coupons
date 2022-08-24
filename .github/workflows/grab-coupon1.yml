@@ -1,0 +1,75 @@
+Skip to content
+Search
+Pulls
+Issues
+Marketplace
+Explore
+ 
+@linbailo 
+linbailo
+/
+actions-mtz-coupons
+Public
+forked from vv314/actions-mtz-coupons
+Code
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+actions-mtz-coupons/.github/workflows/grab-coupon.yml
+@vv314
+vv314 feat: 支持 Qmsg 酱推送（QQ 通知）
+Latest commit 033ddcc on 25 Dec 2021
+ History
+ 1 contributor
+45 lines (42 sloc)  1.5 KB
+
+name: 领红包
+
+# https://docs.github.com/cn/actions/reference/events-that-trigger-workflows#workflow_dispatch
+on:
+  # 手动触发
+  workflow_dispatch:
+  schedule:
+    # https://crontab.guru/
+    # UTC 时间，中国时区应减 8
+    #         ┌────────── minute (0 - 59)
+    #         │ ┌──────── hour (0 - 23)
+    #         │ │ ┌────── day of the month (1 - 31)
+    #         │ │ │ ┌──── month (1 - 12 or JAN-DEC)
+    #         │ │ │ │ ┌── day of the week (0 - 6 or SUN-SAT)
+    #         │ │ │ │ │
+    - cron: '45 2 * * *'
+
+jobs:
+  start:
+    name: grab coupon
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v2
+        with: { ref: main }
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: yarn install
+      - name: Run app
+        run: yarn start
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+          TG_USER_ID: ${{ secrets.TG_USER_ID }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          SC_SEND_KEY: ${{ secrets.SC_SEND_KEY }}
+          QMSG_KEY: ${{ secrets.QMSG_KEY }}
+          QMSG_ADMIN: ${{ secrets.QMSG_ADMIN }}
+          QYWX_SEND_CONF: ${{ secrets.QYWX_SEND_CONF }}
+          LARK_WEBHOOK: ${{ secrets.LARK_WEBHOOK }}
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
+You have no unread notifications
