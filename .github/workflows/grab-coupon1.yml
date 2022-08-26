@@ -32,7 +32,7 @@ jobs:
       - name: Run app
         run: yarn start
         env:
-          TOKEN: "WSKuOSghNEAkIAxqe_kEyOnEhWcAAAAAgxMAAEXkzalgPpWabUPsCWoGbiZ5lj6cwWjpfkUeTs-VaW7rdP-8lJBqYi4UwiLLpXpCcg"
+          TOKEN: "vrfWSsYRaZLC2KGrs8APa5eCYiIAAAAAgxMAAOKNMnkzpxqq1pXUPTwt5SpNvEJmSGYEg8Tr2w0mcDhG7E2wKB2o9VFnNZ26WP3DkA"
           BARK_KEY: ${{ secrets.BARK_KEY }}
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
